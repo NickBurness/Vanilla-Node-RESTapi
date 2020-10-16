@@ -22,9 +22,7 @@ async function getProduct(req, res, id) {
 
     if (!product) {
       res.writeHead(404, { "Content-Type": "application/json" });
-      res.end(
-        JSON.stringify({ message: `could not find product with id: ${id}` })
-      );
+      res.end(JSON.stringify({ message: `could not find product with id: ${id}` }));
     } else {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(product));
@@ -65,9 +63,7 @@ async function updateProduct(req, res, id) {
 
     if (!product) {
       res.writeHead(404, { "Content-Type": "application/json" });
-      res.end(
-        JSON.stringify({ message: `could not update product with id: ${id}` })
-      );
+      res.end(JSON.stringify({ message: `could not update product with id: ${id}` }));
     } else {
       const body = await getPostData(req);
 
@@ -97,9 +93,7 @@ async function deleteProduct(req, res, id) {
 
     if (!product) {
       res.writeHead(404, { "Content-Type": "application/json" });
-      res.end(
-        JSON.stringify({ message: `could not delete product with id: ${id}` })
-      );
+      res.end(JSON.stringify({ message: `could not delete product with id: ${id}` }));
     } else {
       await Product.remove(id);
       res.writeHead(200, { "Content-Type": "application/json" });
